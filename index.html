@@ -5,44 +5,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emergency Hotline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-white">
 
   <!-- Navbar -->
   <nav class="bg-white shadow px-6 py-3 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <img class="w-10 h-10" src="assets/logo.png" alt="">
+      <img class="w-10 h-10" src="assets/logo.png" alt="Logo">
       <span class="text-lg font-bold text-[#006747]">
-        Emergency <br/> Service
+        Emergency <br /> Service
       </span>
     </div>
     <div class="flex items-center gap-6">
-
-
-      <!-- Heart section-->
-
+      <!-- Heart section -->
       <div
         class="flex items-center justify-center w-[123px] h-[52px] rounded-full bg-[rgba(65,255,107,0.1)] px-4 gap-3">
         <span class="font-medium">0</span>
-
-        <img class="w-6 h-6 cursor-pointer" src="assets/heart.png" alt="" id="">
+        <img class="w-6 h-6 cursor-pointer" src="assets/heart.png" alt="Heart">
       </div>
 
       <!-- Coin section -->
       <div
         class="flex items-center justify-center w-[106px] h-[52px] rounded-full bg-[rgba(65,255,107,0.1)] px-4 gap-3">
-
-        <span class="font-medium flex items-center justify-center w-[32px] h-[24px]"
-        >100
+        <span class="font-medium flex items-center justify-center w-[32px] h-[24px]">
+          100
         </span>
-
-        <img class="w-[24px] h-[24px]" src="assets/coin.png" alt="">
+        <img class="w-[24px] h-[24px]" src="assets/coin.png" alt="Coin">
       </div>
 
-      <div class="flex items-center justify-center w-[106px] h-[52px] rounded-full bg-[#00A63E] px-4">
-        <span class="font-medium flex items-center justify-center" id="copy-count" 
-        >0 Copy
+      <!-- Copy Count section -->
+      <div class="flex items-center justify-center w-[157px] h-[52px] rounded-full bg-[#00A63E] px-4">
+        <span class="font-medium flex items-center justify-center" id="copy-count">
+          0 Copy
         </span>
       </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="w-full h-[239px] flex flex-col items-center justify-between px-6"
+    style="background: linear-gradient(to bottom, #013223 0%, #006747 50%, #013223 100%);">
+
+    <img class="w-20 h-20 mt-4" src="assets/logo-dark.png" alt="">
+
+    <h1 class="text-white text-center"
+      style="font-family: 'Hind Madurai', sans-serif; font-weight: 700; font-size: 40px; color: #FFFFFF;">
+      Emergency Service Directory </h1>
+
+    <p class="text-white text-center mb-4"
+      style="font-family: 'Hind Madurai', sans-serif; font-weight: 600; font-size: 20px; color: #FFFFFF;">
+      Government Emergency Services at Your Fingertip – A Project by Government of the People’s Republic of Bangladesh
+    </p>
+  </section>
+</body>
