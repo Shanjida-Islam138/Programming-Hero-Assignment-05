@@ -348,12 +348,103 @@
     let heartCount= 0;
     heartBtn.addEventListener('click', ()=>{
       heartCount++;
-      heartCountEl.textContent = heartCount;
+      heartCountEl.textContent= heartCount;
+    }
+    );
+
+    const coinCountEl= document.getElementById('coinCount');
+    const getCoins= ()=> parseInt(coinCountEl.textContent,10) || 0;
+    const setCoins= (n)=> (coinCountEl.textContent= n);
+
+
+
+    const copyCountEl= document.getElementById('copyCount');
+    let copyTotal= 0;
+    const bumpCopy= ()=> {
+      copyTotal += 1;
+      copyCountEl.textContent= `${copyTotal} Copy`;
+    };
+
+
+
+    const historyList= document.getElementById('historyList');
+    const clearHistoryBtn= document.getElementById('clearHistoryBtn');
+    clearHistoryBtn.addEventListener('click', () => {
+      historyList.innerHTML= '';
+    });
+
+    function addHistoryItem(name, number) {
+      const now= new Date();
+      const time= now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }
+
+      );
+      const item= document.createElement('div');
+      item.className= 'flex items-center justify-between border-b border-gray-100 pb-2';
+      item.innerHTML= `<div class="flex flex-col">
+    <span class="font-medium">${name}</span>
+    <span class="text-xs text-gray-500">${number}</span>
+    </div>
+    <span class="text-xs text-gray-500">${time}</span>
+    `;
+
+    
+      historyList.prepend(item);
+    }
+
+
+
+    function getCardData(btn) {
+      const card= btn.closest('.card');
+      if(!card) return { name: 'Unknown', number: '' };
+      const name= card.dataset.name || 'Unknown';
+      const number= card.dataset.number || (card.querySelector('.hotline-number')?.textContent.trim() || '');
+      return { name, number };
+    }
+
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async ()=> {
+        const { number, name } = getCardData(btn);
+        try {
+          await navigator.clipboard.writeText(number);
+          alert(`Copied ${name} number: ${number}`);
+          bumpCopy();
+        } catch (e) {
+          alert('Copy failed. Please try again.');
+        }
+      }
+    );
     }
   );
 
 
- 
+
+    document.querySelectorAll('.call-btn').forEach((btn) => {
+      btn.addEventListener('click', ()=> {
+        const { name, number } = getCardData(btn);
+        const coins = getCoins();
+        if (coins < 20) {
+          alert('Not enough coins to make a call. You need at least 20 coins.');
+          return;
+        }
+        alert(`Calling ${name} (${number})...`);
+        setCoins(coins - 20);
+        addHistoryItem(name, number);
+      }
+    );
+    }
+  );
+
+    document.querySelectorAll('.card-heart').forEach((heart) => {
+      heart.addEventListener('click', ()=> {
+        heartCount++;
+        heartCountEl.textContent = heartCount;
+      }
+    );
+    }
+  );
+
+
+
   </script>
 
 
