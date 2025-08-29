@@ -13,9 +13,9 @@
 
 
 <body class="bg-gray-100">
-  <!-- Navbar -->
+  <!-------- Navbar --------->
   <nav class="bg-white shadow px-4 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-    <!-- Left Side: Logo + Title -->
+
     <div class="flex items-center gap-3">
       <img src="assets/logo.png" alt="Logo" class="w-10 h-10" />
       <span class="text-lg font-bold text-[#006747]">
@@ -24,9 +24,9 @@
     </div>
 
 
-    <!-- Right Side: Heart / Coin / Copy Counter -->
+
     <div class="flex items-center gap-4 sm:gap-6">
-      <!-- Heart Section (navbar pill is clickable too) -->
+
       <button type="button"
         class="flex items-center justify-center w-[123px] h-[52px] rounded-full bg-[rgba(65,255,107,0.1)] px-4 gap-3 cursor-pointer"
         id="heartBtn" aria-label="Increase heart count">
@@ -69,9 +69,10 @@
   </section>
 
 
-  <!-- Main section: cards + history -->
+  <!-------------- Main section -------------->
   <main class="w-full flex flex-col lg:flex-row px-6 py-8 gap-6">
-    <!-- Card section -->
+
+    <!-------- Card section ------------->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[1px] gap-y-[30px] flex-1">
       <!-- card_01 -->
       <div
@@ -181,6 +182,7 @@
           </button>
         </div>
       </div>
+
       <!-- card_05 -->
       <div
         class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
@@ -320,11 +322,42 @@
       </div>
     </section>
 
-    
+    <!--history section -->
+    <aside class="w-full lg:w-[300px] bg-white rounded-[12px] shadow p-4">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-clock-rotate-left text-[20px]"></i>
+          <h2 class="font-bold text-[18px] text-gray-800">Call History</h2>
+        </div>
+        <button id="clearHistoryBtn"
+          class="flex items-center justify-center w-[100px] h-[40px] rounded-full bg-[#00A63E] px-4 text-white">
+          Clear
+        </button>
+      </div>
+      <div id="historyList" class="flex flex-col gap-3 text-[14px] text-gray-700">
+
+      </div>
+    </aside>
+  </main>
+
+  <!-- functionality-->
+
+  <script>
+    const heartBtn= document.getElementById('heartBtn');
+    const heartCountEl= document.getElementById('heartCount');
+    let heartCount= 0;
+    heartBtn.addEventListener('click', ()=>{
+      heartCount++;
+      heartCountEl.textContent === heartCount;
+    }
+  );
+
+
+ 
+  </script>
+
+
 </body>
 
 
 </html>
-
-
-
