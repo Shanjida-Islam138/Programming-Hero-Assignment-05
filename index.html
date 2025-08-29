@@ -1,351 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emergency Hotline</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
+
 
 <body class="bg-gray-100">
   <!-- Navbar -->
   <nav class="bg-white shadow px-4 sm:px-6 py-3 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-
+    <!-- Left Side: Logo + Title -->
     <div class="flex items-center gap-3">
-      <img src="assets/logo.png" alt="Logo" class="w-10 h-10">
+      <img src="assets/logo.png" alt="Logo" class="w-10 h-10" />
       <span class="text-lg font-bold text-[#006747]">
-        Emergency <br class="sm:hidden"> Service
+        Emergency <br class="sm:hidden" /> Service
       </span>
     </div>
 
-    <!-- heart, coin, copy section-->
-    <div class="flex items-center gap-4 sm:gap-6">
-      <div
-        class="flex items-center justify-center w-[123px] h-[52px] rounded-full bg-[rgba(65,255,107,0.1)] px-4 gap-3">
-        <span class="font-medium" id="">0</span>
-        <img class="w-6 h-6 cursor-pointer" src="assets/heart.png" alt="">
-      </div>
 
+    <!-- Right Side: Heart / Coin / Copy Counter -->
+    <div class="flex items-center gap-4 sm:gap-6">
+      <!-- Heart Section (navbar pill is clickable too) -->
+      <button type="button"
+        class="flex items-center justify-center w-[123px] h-[52px] rounded-full bg-[rgba(65,255,107,0.1)] px-4 gap-3 cursor-pointer"
+        id="heartBtn" aria-label="Increase heart count">
+        <span class="font-medium" id="heartCount">0</span>
+        <img class="w-6 h-6" src="assets/heart.png" alt="heart" />
+      </button>
+
+
+      <!-- Coin Section -->
       <div
         class="flex items-center justify-center w-[106px] h-[52px] rounded-full bg-[rgba(65,255,107,0.1)] px-4 gap-3">
-        <span class="font-medium flex items-center justify-center w-[32px] h-[24px]">100</span>
-        <img class="w-[24px] h-[24px]" src="assets/coin.png" alt="">
+        <span class="font-medium flex items-center justify-center w-[32px] h-[24px]" id="coinCount">100</span>
+        <img class="w-[24px] h-[24px]" src="assets/coin.png" alt="coin" />
       </div>
 
 
+      <!-- Copy Section -->
       <div class="flex items-center justify-center w-[157px] h-[52px] rounded-full bg-[#00A63E] px-4 text-white">
-        <span class="font-medium flex items-center justify-center" id="">0 Copy</span>
+        <span class="font-medium flex items-center justify-center" id="copyCount">0 Copy</span>
       </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="w-full h-[239px] flex flex-col items-center justify-between px-6"
+  <section class="w-full h-[239px] flex flex-col items-center justify-center px-6 space-y-4"
     style="background: linear-gradient(to bottom, #013223 0%, #006747 50%, #013223 100%);">
+    <img class="w-20 h-20 mt-4" src="assets/logo-dark.png" alt="" />
 
-    <img class="w-20 h-20 mt-4" src="assets/logo-dark.png" alt="">
 
     <h1 class="text-white text-center"
       style="font-family: 'Hind Madurai', sans-serif; font-weight: 700; font-size: 40px; color: #FFFFFF;">
-      Emergency Service Directory </h1>
+      Emergency Service Directory
+    </h1>
+
 
     <p class="text-white text-center mb-4"
       style="font-family: 'Hind Madurai', sans-serif; font-weight: 600; font-size: 20px; color: #FFFFFF;">
       Government Emergency Services at Your Fingertip – A Project by Government of the People’s Republic of Bangladesh
     </p>
   </section>
-  
-  <!-- main section -->
-  <main class="w-full flex flex-col lg:flex-row px-6 py-8">
 
-    <!-- card section -->
+
+  <!-- Main section: cards + history -->
+  <main class="w-full flex flex-col lg:flex-row px-6 py-8 gap-6">
+    <!-- Card section -->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-[1px] gap-y-[30px] flex-1">
-
       <!-- card_01 -->
-      <div class="bg-white  w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="National Emergency Number" data-number="999">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="">
-            <!-- Title_Subtitle -->
-            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">
-              National Emergency Number
+            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="" />
+            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">National Emergency Number
             </h3>
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-              National Emergency
-            </p>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">National Emergency</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          999
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">999</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          All
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">All</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
-
-         <!-- card_02 -->
-      <div class="bg-white  w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <!-- card_02 -->
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Police Helpline Number" data-number="999">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/police.png" alt="">
-            <!-- Title_Subtitle -->
-            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Police Helpline Number </h3>           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-            Police
-            </p>
+            <img class="w-10 h-10 mb-2" src="assets/police.png" alt="" />
+            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Police Helpline Number</h3>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Police</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[17px] text-[rgba(17,17,17,1)]">
-          999
-        </div>
-
+        <div class="mt-4 font-medium text-[17px] text-[rgba(17,17,17,1)] hotline-number">999</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          Police
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Police</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
 
       <!-- card_03 -->
-      <div class="bg-white  w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Fire Service Number" data-number="999">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/fire-service.png" alt="">
-            <!-- Title_Subtitle -->
+            <img class="w-10 h-10 mb-2" src="assets/fire-service.png" alt="" />
             <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Fire Service Number</h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-             Fire Service
-            </p>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Fire Service</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          999
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">999</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          Fire
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Fire</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
+
 
       <!-- card_04 -->
-      <div class="bg-white w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Ambulance Service" data-number="1994-999999">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/ambulance.png">
-            <!-- Title_Subtitle -->
+            <img class="w-10 h-10 mb-2" src="assets/ambulance.png" alt="" />
             <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Ambulance Service</h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-           Ambulance
-            </p>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Ambulance</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          1994-999999
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">1994-999999</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          Health
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Health</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
-
-       <!-- card_05 -->
-      <div class="bg-white w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <!-- card_05 -->
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Women & Child Helpline" data-number="109">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/emergency.png">
-            <!-- Title_Subtitle -->
+            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="" />
             <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Women & Child Helpline</h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-           Women & Child Helpline
-            </p>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Women & Child Helpline</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          109
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">109</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          Help
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Help</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
 
-       <!-- card_06 -->
-      <div class="bg-white w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+
+      <!-- card_06 -->
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Anti-Corruption Helpline" data-number="106">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/emergency.png">
-            <!-- Title_Subtitle -->
-            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Anti-Corruption Helpline</h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-            Anti-Corruption
-            </p>
+            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="" />
+            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Anti-Corruption Helpline
+            </h3>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Anti-Corruption</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          106
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">106</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-        Govt.
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Govt.</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
 
       <!-- card_07 -->
-      <div class="bg-white w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Electricity Helpline" data-number="16216">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/emergency.png">
-            <!-- Title_Subtitle -->
-            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Electricity Helpline </h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-            Electricity Outage
-            </p>
+            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="" />
+            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Electricity Helpline</h3>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Electricity Outage</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          16216
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">16216</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          Electricity
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Electricity</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
@@ -353,101 +266,65 @@
 
 
       <!-- card_08 -->
-      <div class="bg-white w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Brac Helpline" data-number="16445">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/emergency.png">
-            <!-- Title_Subtitle -->
+            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="" />
             <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Brac Helpline</h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-            Brac
-            </p>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Brac</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          16445
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">16445</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          NGO
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">NGO</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
-
-<!-- card_09 -->
-      <div class="bg-white w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between">
-     
+      <!-- card_09 -->
+      <div
+        class="bg-white w-full max-w-[300px] h-[300px] p-[32px] rounded-[12px] shadow flex flex-col justify-between card"
+        data-name="Bangladesh Railway Helpline" data-number="163">
         <div class="flex items-start justify-between">
-
           <div class="flex flex-col items-start">
-            <img class="w-10 h-10 mb-2" src="assets/emergency.png">
-            <!-- Title_Subtitle -->
-            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Bangladesh Railway Helpline </h3>
-           
-            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">
-            Bangladesh Railway
-            </p>
+            <img class="w-10 h-10 mb-2" src="assets/emergency.png" alt="" />
+            <h3 class="font-['Hind Madurai'] font-bold text-[15px] text-[rgba(17,17,17,1)]">Bangladesh Railway Helpline
+            </h3>
+            <p class="font-['Roboto'] font-normal text-[10px] text-gray-500">Bangladesh Railway</p>
           </div>
-
-          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="">
+          <img class="w-6 h-6 cursor-pointer card-heart" src="assets/heart.png" alt="heart" />
         </div>
-
-        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)]">
-          163
-        </div>
-
+        <div class="mt-4 font-medium text-[15px] text-[rgba(17,17,17,1)] hotline-number">163</div>
         <span
-          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">
-          Travel
-        </span>
-
-
+          class="mt-2 flex items-center justify-center font-['Hind Madurai'] font-normal text-[10px] text-[rgba(92,92,92,1)] bg-[rgba(242,242,242,1)] w-[53px] h-[37px] rounded-full">Travel</span>
         <div class="flex gap-3 mt-4">
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border copy-btn">
+          <button type="button"
+            class="copy-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] text-[rgba(92,92,92,1)] bg-[rgba(255,255,255,1)] rounded-[8px] border">
             <i class="fa-regular fa-copy"></i> Copy
           </button>
-
-          <button
-            class="flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px] call-btn">
+          <button type="button"
+            class="call-btn flex items-center justify-center gap-2 w-[182.33px] h-[40px] bg-[rgba(0,166,62,1)] text-[rgba(255,255,255,1)] rounded-[8px]">
             <i class="fa-solid fa-phone"></i> Call
           </button>
         </div>
       </div>
-
-
-
-
-      
-      
-
-
-
     </section>
 
     
+</body>
 
-  </main>
 
+</html>
 
 
 
